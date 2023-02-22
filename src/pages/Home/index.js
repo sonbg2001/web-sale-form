@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
-import Slider from "../../components/component/Slider";
+import { connect } from "react-redux";
 
+import Slider from "../../components/component/Slider";
 import "./Home.scss";
 import HomeSection from "./HomeSection";
 
-function Home() {
+function Home({ ...props }) {
   return (
     <div className="home-wrapper">
       <Slider />
@@ -25,8 +26,8 @@ function Home() {
         </Link>
       </div>
 
-      <HomeSection title={"Sản phẩm mới"} products={["soo", "2", "3"]} />
-      <HomeSection title={"Sản phẩm bán chạy"} products={["soo", "2", "3"]} />
+      <HomeSection title={"Sản phẩm mới"} products />
+      <HomeSection title={"Sản phẩm bán chạy"} products />
       <div>
         <img
           className="w-100"
@@ -34,9 +35,19 @@ function Home() {
           alt=""
         />
       </div>
-      <HomeSection title={"Blog"} products={["soo", "2", "3"]} />
+      <HomeSection title={"Blog"} products />
     </div>
   );
 }
 
-export default Home;
+const mapStateToProps = (state) => {
+  return { products: state.products };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    sortProduct: (sort) => dispatch({ type: "SORT_PRODUCTS", payload: sort }),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Home);
