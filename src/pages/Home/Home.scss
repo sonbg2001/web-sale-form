@@ -44,28 +44,26 @@
 .home-section--product {
   padding: 4px;
   text-align: center;
-  overflow: hidden;
-  // position: relative;
   &:hover .home-section--product__image {
     background-color: #ccc;
   }
 }
 
 .product-item {
+  overflow: hidden;
+
   position: relative;
   &:hover .home-section--product__link {
-    display: flex;
+    transform: translateX(0);
   }
 }
 
-// .home-section--product__image {
-//   position: relative;
-// }
-
 .home-section--product__link {
-  display: none;
+  display: flex;
 
+  overflow: hidden;
   position: absolute;
+  transform: translateX(-100%);
   background-color: rgba(0, 0, 0, 0.5);
   top: 0;
   left: 0;
@@ -74,6 +72,7 @@
   z-index: 3;
   align-items: center;
   justify-content: center;
+  transition: all linear 0.2s;
   button {
     padding: 8px 30%;
     font-size: 1.6rem;

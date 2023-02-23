@@ -8,8 +8,10 @@
   --white: #fff;
   --black: #000;
   --primary-color: #2d2d2d;
-  // --text-color: rgba(7, 7, 7, 0.5);
   --text-color: #070707;
+
+  //boottrap
+  --bs-body-font-size: 1.6rem;
 }
 
 * {
@@ -20,6 +22,10 @@
 
 html {
   font-size: 62.5%;
+}
+
+.h5 {
+  font-size: 2.25rem;
 }
 
 .inner {
@@ -40,6 +46,7 @@ a {
 .btn {
   color: var(--black);
   border-color: var(--black);
+  font-size: 1.6rem;
 }
 
 .btn:hover {
@@ -71,3 +78,45 @@ a {
 .slick-next {
   right: 10px;
 }
+
+.form-control {
+  font-size: 1.6rem;
+}
+
+//Drop down
+
+.dropdown-menu {
+  box-shadow: 0 7px 14px rgb(50 50 93 / 10%), 0 3px 6px rgb(0 0 0 / 8%);
+  .dropdown-item {
+    &:focus {
+      color: var(--white);
+      background-color: var(--black);
+    }
+  }
+}
+.dropdown-item {
+  font-weight: 500;
+  font-size: 1.3rem;
+  color: var(--text-color);
+  background-color: var(--white);
+  .nav-link {
+    color: var(--text-color);
+  }
+  &:hover {
+    color: var(--white);
+    background-color: var(--black);
+    a {
+      color: var(--white);
+    }
+  }
+}
+// .dropdown-item:hover,
+// .dropdown-item:focus {
+//   color: var(--white);
+//   background-color: var(--black);
+// }
+// .dropdown-menu {
+//   position: absolute;
+//   top: 40px;
+//   left: 90%;
+// }

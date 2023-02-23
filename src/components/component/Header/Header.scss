@@ -61,3 +61,14 @@
   margin: 0;
   padding-left: 6px;
 }
+
+@media (max-width: 1200px) {
+  .header-main--end {
+    margin-top: 10px;
+    margin-left: 0;
+    padding-left: 0;
+    border: none;
+    // align-items: center;
+    line-height: 26px;
+  }
+}
