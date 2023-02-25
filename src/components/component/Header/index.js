@@ -8,7 +8,7 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import { DropdownSubmenu, NavDropdownMenu } from "react-bootstrap-submenu";
 import Offcanvas from "react-bootstrap/Offcanvas";
 
-import { FaUserCircle, FaPhone, FaHome } from "react-icons/fa";
+import { FaPhone, FaHome } from "react-icons/fa";
 import { AiTwotoneShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import paths from "../../../routes/paths";
@@ -29,7 +29,7 @@ function Header() {
           <i>
             <FaHome />
           </i>
-          Hệ thống cửa hàng
+          Hệ thống cửa hàng toàn quốc
         </p>
         <p>
           <i>
@@ -182,10 +182,6 @@ function Header() {
                   Sản phẩm mới
                 </Nav.Link>
                 <Nav.Link as={Link}>Bộ sưu tập</Nav.Link>
-
-                <Nav.Link as={Link} to="/">
-                  Đánh giá{" "}
-                </Nav.Link>
               </Nav>
               <Form className="d-flex">
                 <Form.Control
@@ -198,21 +194,45 @@ function Header() {
                 <Button variant="outline-success">Tìm</Button>
               </Form>
 
-              <Nav.Link as={Link} to={paths.account}>
+              <Nav.Item>
                 <div className="header-main--end">
-                  <i className="icon">
+                  {/* <i className="icon">
                     <FaUserCircle />
-                  </i>
-                  <p className="header-main--end__title">Tài khoản</p>
+                  </i> */}
+                  <div className="header-user-avatar">
+                    <img
+                      className="header-user-avatar-img"
+                      src={
+                        true
+                          ? "https://www.invert.vn/media/uploads/uploads/2022/12/03194208-8-anh-gai-xinh-goi-cam.jpeg"
+                          : "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook.jpg"
+                      }
+                      alt="avatar"
+                    />
+                  </div>
+                  <div className="header-main--end__title">
+                    <NavDropdown title="Nguyễn Văn Sơn">
+                      <NavDropdown.Item as={Link} to="/action3">
+                        Thông tin tài khoản
+                      </NavDropdown.Item>
+                      <NavDropdown.Item as={Link} to="#action4">
+                        Lịch sử mua hàng
+                      </NavDropdown.Item>
+                      <NavDropdown.Divider />
+                      <NavDropdown.Item as={Link} to="/">
+                        Đăng suất
+                      </NavDropdown.Item>
+                    </NavDropdown>
+                  </div>
                 </div>
-              </Nav.Link>
+              </Nav.Item>
 
               <Nav.Link as={Link} to={paths.cart}>
                 <div className="header-main--end">
                   <i className="icon">
                     <AiTwotoneShopping />
                   </i>
-                  <p className="header-main--end__title">Giỏ hàng</p>
+                  <p className="header-main--end__title">Giỏ hàng(1)</p>
                 </div>
               </Nav.Link>
             </Offcanvas.Body>

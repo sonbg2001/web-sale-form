@@ -1,8 +1,7 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import Slider from "react-slick";
 import { connect } from "react-redux";
-import { formatCash } from "../../format";
+import ProductItem from "../../components/component/ProductItem/ProductItem";
 
 function HomeSection({ title, products, ...props }) {
   const settings = {
@@ -45,33 +44,8 @@ function HomeSection({ title, products, ...props }) {
       <h2 className="home-section--title">{title}</h2>
       <Slider {...settings}>
         {products &&
-          products.map((product) => {
-            return (
-              <div key={product.id} className="home-section--product">
-                <div className="product-item">
-                  <img
-                    className="home-section--product__image w-100"
-                    src={product.images[0]}
-                    alt=""
-                  />
-                  <Link
-                    className="home-section--product__link"
-                    to={`/products/${product.id}`}
-                  >
-                    <button>Truy cập</button>
-                  </Link>
-                </div>
-                <Link
-                  className="home-section--product__name"
-                  to={`/products/${product.id}`}
-                >
-                  {product.name}
-                </Link>
-                <h3 className="home-section--price">
-                  {formatCash(product.price + "")}đ
-                </h3>
-              </div>
-            );
+          products.map((item) => {
+            return <ProductItem key={item.id} product={item} />;
           })}
       </Slider>
     </section>

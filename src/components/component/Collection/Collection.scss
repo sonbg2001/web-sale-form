@@ -1,0 +1,23 @@
+.collection-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  .collection-head-title {
+    h1 {
+      font-weight: 700;
+      text-transform: uppercase;
+      font-size: 1.8rem;
+    }
+  }
+
+  .collection-sidebar {
+    display: flex;
+    .dropdown {
+      padding-left: 30px;
+    }
+  }
+}
+
+.collection-body {
+  padding-top: 40px;
+}

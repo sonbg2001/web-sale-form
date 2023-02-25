@@ -8,6 +8,16 @@ const publicRoutes = [
     layout: Layouts.defaultLayout,
   },
   {
+    path: paths.products,
+    component: pages.Products,
+    layout: Layouts.defaultLayout,
+  },
+  {
+    path: paths.productDetail,
+    component: pages.ProductDetail,
+    layout: Layouts.defaultLayout,
+  },
+  {
     path: paths.search,
     component: pages.Home,
     layout: Layouts.defaultLayout,

@@ -62,13 +62,27 @@
   padding-left: 6px;
 }
 
+.header-user-avatar {
+  border-radius: 50%;
+  background-color: black;
+  height: 30px;
+  width: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  border: 1px solid var(--black);
+  .header-user-avatar-img {
+    height: 100%;
+  }
+}
+
 @media (max-width: 1200px) {
   .header-main--end {
     margin-top: 10px;
     margin-left: 0;
     padding-left: 0;
     border: none;
-    // align-items: center;
     line-height: 26px;
   }
 }
