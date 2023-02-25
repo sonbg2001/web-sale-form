@@ -14,11 +14,17 @@ function ProductItem({ product }) {
           }
           alt=""
         />
-        <Link className="product-item__link" to={`/products`}>
+        <Link
+          className="product-item__link"
+          to={`/products/${product ? product.id : "1"}`}
+        >
           <button>Truy cập</button>
         </Link>
       </div>
-      <Link className="product-item__name" to={`/products`}>
+      <Link
+        className="product-item__name"
+        to={`/products/${product ? product.id : "1"}`}
+      >
         {product ? product.name : "name products"}
       </Link>
       <h3 className="product-item__price">

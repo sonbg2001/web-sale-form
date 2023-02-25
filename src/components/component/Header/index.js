@@ -15,7 +15,7 @@ import paths from "../../../routes/paths";
 
 function Header() {
   window.onscroll = function () {
-    console.log();
+    // console.log(window.scrollY);
     var headerMain = document.querySelector(".header-main");
     if (window.scrollY > 29) {
       headerMain.classList.add("header-position-fixed");
@@ -196,14 +196,11 @@ function Header() {
 
               <Nav.Item>
                 <div className="header-main--end">
-                  {/* <i className="icon">
-                    <FaUserCircle />
-                  </i> */}
                   <div className="header-user-avatar">
                     <img
                       className="header-user-avatar-img"
                       src={
-                        true
+                        false
                           ? "https://www.invert.vn/media/uploads/uploads/2022/12/03194208-8-anh-gai-xinh-goi-cam.jpeg"
                           : "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook.jpg"
                       }
@@ -211,18 +208,29 @@ function Header() {
                     />
                   </div>
                   <div className="header-main--end__title">
-                    <NavDropdown title="Nguyễn Văn Sơn">
-                      <NavDropdown.Item as={Link} to="/action3">
-                        Thông tin tài khoản
-                      </NavDropdown.Item>
-                      <NavDropdown.Item as={Link} to="#action4">
-                        Lịch sử mua hàng
-                      </NavDropdown.Item>
-                      <NavDropdown.Divider />
-                      <NavDropdown.Item as={Link} to="/">
-                        Đăng suất
-                      </NavDropdown.Item>
-                    </NavDropdown>
+                    {false ? (
+                      <NavDropdown title="Nguyễn Văn Sơn">
+                        <NavDropdown.Item as={Link} to="/action3">
+                          Thông tin tài khoản
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="#action4">
+                          Lịch sử mua hàng
+                        </NavDropdown.Item>
+                        <NavDropdown.Divider />
+                        <NavDropdown.Item as={Link} to="/">
+                          Đăng suất
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    ) : (
+                      <NavDropdown title="Tài khoản">
+                        <NavDropdown.Item as={Link} to="/action3">
+                          Đăng nhập
+                        </NavDropdown.Item>
+                        <NavDropdown.Item as={Link} to="#action4">
+                          Đăng ký
+                        </NavDropdown.Item>
+                      </NavDropdown>
+                    )}
                   </div>
                 </div>
               </Nav.Item>
