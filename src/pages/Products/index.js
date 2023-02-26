@@ -10,7 +10,9 @@ function Products() {
         <Breadcrumb />
       </div>
       <div className="row">
-        <Sidebar />
+        <div className="col-sm-3 col-12 d-sm-block">
+          <Sidebar />
+        </div>
         <div className="col-sm-9 col-12">
           <Collection />
           <div className="pagination-wrapper">

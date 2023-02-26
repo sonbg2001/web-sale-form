@@ -53,6 +53,10 @@ a {
   border-color: var(--black);
   font-size: 1.6rem;
 }
+.btn.primary {
+  color: var(--white);
+  background-color: var(--text-color);
+}
 
 .btn:hover {
   color: var(--white);

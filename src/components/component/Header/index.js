@@ -21,7 +21,10 @@ function Header() {
       headerMain.classList.add("header-position-fixed");
     } else headerMain.classList.remove("header-position-fixed");
   };
-
+  const handleShowModelLogin = () => {
+    const loginModel = document.getElementById("login-model");
+    loginModel.style.display = "flex";
+  };
   return (
     <div id="header">
       <div className="header-top inner ">
@@ -202,7 +205,7 @@ function Header() {
                       src={
                         false
                           ? "https://www.invert.vn/media/uploads/uploads/2022/12/03194208-8-anh-gai-xinh-goi-cam.jpeg"
-                          : "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook.jpg"
+                          : "https://ps.w.org/user-avatar-reloaded/assets/icon-128x128.png?rev=2540745"
                       }
                       alt="avatar"
                     />
@@ -222,14 +225,12 @@ function Header() {
                         </NavDropdown.Item>
                       </NavDropdown>
                     ) : (
-                      <NavDropdown title="Tài khoản">
-                        <NavDropdown.Item as={Link} to="/action3">
-                          Đăng nhập
-                        </NavDropdown.Item>
-                        <NavDropdown.Item as={Link} to="#action4">
-                          Đăng ký
-                        </NavDropdown.Item>
-                      </NavDropdown>
+                      <p
+                        style={{ margin: "0", cursor: "pointer" }}
+                        onClick={handleShowModelLogin}
+                      >
+                        Tài khoản
+                      </p>
                     )}
                   </div>
                 </div>

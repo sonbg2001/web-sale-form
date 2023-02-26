@@ -49,7 +49,6 @@ export default class AsNavFor extends Component {
             />
           </div>
         </Slider>
-        <h4>Second Slider</h4>
         <Slider
           asNavFor={this.state.nav1}
           ref={(slider) => (this.slider2 = slider)}

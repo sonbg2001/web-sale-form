@@ -2,6 +2,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  flex-wrap: wrap;
   .collection-head-title {
     h1 {
       font-weight: 700;
@@ -12,9 +13,11 @@
 
   .collection-sidebar {
     display: flex;
-    .dropdown {
-      padding-left: 30px;
-    }
+    flex-wrap: wrap;
+
+    // .dropdown {
+    //   padding-left: 30px;
+    // }
   }
 }
 

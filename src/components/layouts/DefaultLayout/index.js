@@ -1,5 +1,6 @@
 import Footer from "../../component/Footer";
 import Header from "../../component/Header";
+import LoginModel from "../../component/LoginModel";
 function DefaultLayout({ children }) {
   function handleMoveOnTop() {
     window.scrollTo({
@@ -12,6 +13,8 @@ function DefaultLayout({ children }) {
 
   return (
     <div>
+      <LoginModel />
+
       <Header />
       <div className="main-pages">{children}</div>
       <Footer />
