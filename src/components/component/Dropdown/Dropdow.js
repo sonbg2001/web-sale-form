@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "./Dropdown.scss";
-function Dropdown({ title }) {
+function Dropdown({ title, menu = [] }) {
   const [show, setShow] = useState(false);
   return (
     <div
@@ -27,21 +27,15 @@ function Dropdown({ title }) {
         className={show ? "dropdown-menu show" : "dropdown-menu"}
         aria-labelledby="dropdownMenuButton1"
       >
-        <li>
-          <a className="dropdown-item" href="/">
-            Action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="/">
-            Another action
-          </a>
-        </li>
-        <li>
-          <a className="dropdown-item" href="/">
-            Something else here
-          </a>
-        </li>
+        {menu.map((item, index) => {
+          return (
+            <li key={index}>
+              <a className="dropdown-item" href="/">
+                {item}
+              </a>
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

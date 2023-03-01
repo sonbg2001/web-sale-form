@@ -1,9 +1,11 @@
 import React, { Component } from "react";
 import Slider from "react-slick";
 import "./AsNavFor.scss";
+
 export default class AsNavFor extends Component {
   constructor(props) {
     super(props);
+    this.product = props.product[0];
     this.state = {
       nav1: null,
       nav2: null,
@@ -24,30 +26,32 @@ export default class AsNavFor extends Component {
           asNavFor={this.state.nav2}
           ref={(slider) => (this.slider1 = slider)}
         >
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract01.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract02.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract03.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
-              alt=""
-            />
-          </div>
+          {this.product.images &&
+            this.product.images.map((img, index) => {
+              return (
+                <div
+                  style={{
+                    height: "324px",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    backgroundColor: "#000",
+                  }}
+                  key={index}
+                >
+                  <img
+                    style={{
+                      height: "600px",
+                      width: "100%",
+                      objectFit: "contain",
+                      backgroundColor: "black",
+                    }}
+                    src={img}
+                    alt=""
+                  />
+                </div>
+              );
+            })}
         </Slider>
         <Slider
           asNavFor={this.state.nav1}
@@ -56,30 +60,28 @@ export default class AsNavFor extends Component {
           swipeToSlide={true}
           focusOnSelect={true}
         >
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract01.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract02.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract03.jpg"
-              alt=""
-            />
-          </div>
-          <div>
-            <img
-              src="https://s3.amazonaws.com/static.neostack.com/img/react-slick/abstract04.jpg"
-              alt=""
-            />
-          </div>
+          {this.product.images &&
+            this.product.images.map((img, index) => {
+              return (
+                <div
+                  key={index}
+                  style={{
+                    backgroundColor: "black",
+                  }}
+                >
+                  <img
+                    src={img}
+                    style={{
+                      height: "300px",
+                      width: "100%",
+                      backgroundColor: "black",
+                      objectFit: "cover",
+                    }}
+                    alt=""
+                  />
+                </div>
+              );
+            })}
         </Slider>
       </div>
     );

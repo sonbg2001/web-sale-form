@@ -4,21 +4,31 @@ import "./ProductItem.scss";
 function ProductItem({ product }) {
   return (
     <div className="product-item-wrapper">
-      <div className="product-item">
-        <img
-          className="product-item__image w-100"
-          src={
-            product
-              ? product.images[0]
-              : "https://bedental.vn/wp-content/uploads/2022/11/anh-gai-dep-toc-ngan-bikini-4.jpg"
-          }
-          alt=""
-        />
+      <div className="product-item  ">
+        <div
+          style={{
+            height: "354px",
+            display: "flex ",
+            alignItems: "center",
+            justifyContent: "center",
+            backgroundColor: "#000",
+          }}
+        >
+          <img
+            className="product-item__image "
+            src={
+              product
+                ? product.images[0]
+                : "https://thuthuatnhanh.com/wp-content/uploads/2019/07/anh-girl-xinh-facebook-tuyet-dep.jpg"
+            }
+            alt=""
+          />
+        </div>
         <Link
           className="product-item__link"
           to={`/products/${product ? product.id : "1"}`}
         >
-          <button>Truy cập</button>
+          <button>Xem chi tiết</button>
         </Link>
       </div>
       <Link

@@ -1,5 +1,4 @@
 import "./Header.scss";
-import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
@@ -7,24 +6,37 @@ import Navbar from "react-bootstrap/Navbar";
 import NavDropdown from "react-bootstrap/NavDropdown";
 import { DropdownSubmenu, NavDropdownMenu } from "react-bootstrap-submenu";
 import Offcanvas from "react-bootstrap/Offcanvas";
-
+//redux
+import { useDispatch, useSelector } from "react-redux";
+import { searchProduct } from "../../../redux/actions";
+import { filtersSelector } from "../../../redux/selectors";
+//Reactjs icon
 import { FaPhone, FaHome } from "react-icons/fa";
 import { AiTwotoneShopping } from "react-icons/ai";
 import { Link } from "react-router-dom";
 import paths from "../../../routes/paths";
+import { useState } from "react";
 
 function Header() {
   window.onscroll = function () {
     // console.log(window.scrollY);
     var headerMain = document.querySelector(".header-main");
     if (window.scrollY > 29) {
-      headerMain.classList.add("header-position-fixed");
+      if (headerMain) headerMain.classList.add("header-position-fixed");
     } else headerMain.classList.remove("header-position-fixed");
   };
   const handleShowModelLogin = () => {
     const loginModel = document.getElementById("login-model");
     loginModel.style.display = "flex";
   };
+  const filters = useSelector(filtersSelector);
+
+  const [searchInput, setSearchInput] = useState(filters.search);
+  const dispatch = useDispatch();
+  const handleSearch = () => {
+    dispatch(searchProduct(searchInput));
+  };
+
   return (
     <div id="header">
       <div className="header-top inner ">
@@ -186,15 +198,32 @@ function Header() {
                 </Nav.Link>
                 <Nav.Link as={Link}>Bộ sưu tập</Nav.Link>
               </Nav>
-              <Form className="d-flex">
+              <Form
+                className="d-flex"
+                onSubmit={(e) => {
+                  document.getElementById("search-input-btn").click();
+                  e.preventDefault();
+                }}
+              >
                 <Form.Control
                   type="search"
                   placeholder="Tìm kiếm sản phẩm..."
                   className="me-2"
                   aria-label="Search"
                   spellCheck="false"
+                  value={searchInput}
+                  onChange={(e) => {
+                    setSearchInput(e.target.value);
+                  }}
                 />
-                <Button variant="outline-success">Tìm</Button>
+                <Link
+                  id="search-input-btn"
+                  to={paths.products}
+                  className="btn primary"
+                  onClick={handleSearch}
+                >
+                  Tìm
+                </Link>
               </Form>
 
               <Nav.Item>

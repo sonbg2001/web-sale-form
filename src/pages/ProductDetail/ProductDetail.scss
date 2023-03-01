@@ -34,9 +34,9 @@
       button {
         padding: 6px;
         font-size: 1.4rem;
-        color: var(--text-color);
+        // color: var(--text-color);
+        // border: 1px solid var(--text-color);
         background-color: var(--white);
-        border: 1px solid var(--text-color);
       }
       button.active {
         color: var(--white);

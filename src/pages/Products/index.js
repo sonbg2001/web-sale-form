@@ -2,6 +2,7 @@ import Breadcrumb from "../../components/component/Breadcrumb";
 import Collection from "../../components/component/Collection/Collection";
 import Pagination from "../../components/component/Pagination";
 import Sidebar from "../../components/component/Sidebar";
+
 import "./Products.scss";
 function Products() {
   return (
